@@ -210,9 +210,9 @@ var OSCReceiver = function(message) {
     this.uint8array = new Uint8Array(message);
     this.address = '';
     this.oscArgs = [];
-    this.JSON = '';
+    this.asObject = {};
     this.translateMessage();
-    this.toJSON();
+    this.toObject();
 };
 
 OSCReceiver.prototype.parseInteger = function (index) {
@@ -304,8 +304,8 @@ OSCReceiver.prototype.translateMessage = function () {
     }
 };
 
-OSCReceiver.prototype.toJSON = function () {
-    this.JSON = JSON.stringify({'address': this.address,
-                                'args': this.oscArgs});
+OSCReceiver.prototype.toObject = function () {
+    this.asObject = {'address': this.address,
+                     'args': this.oscArgs};
 };
 
