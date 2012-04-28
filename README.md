@@ -26,7 +26,6 @@ Example over websockets:
     };
 
     fr.onload = function(evt) {
-        result = fr.result;
-        var recv = new OSCReceiver(result);
+        var recv = new OSCReceiver(fr.result);
         console.log(recv.asObject);
     };
