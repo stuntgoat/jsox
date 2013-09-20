@@ -254,10 +254,11 @@ OSCReceiver.prototype.parseFloat = function (index) {
 };
 
 OSCReceiver.prototype.parseString = function (index) {
-    var nullOffset = [4, 3, 2, 1];
-    var value = '';
-    var offset = 0;
     var i = 0;
+    var nullOffset = [4, 3, 2, 1];
+    var offset = 0;
+    var value = '';
+
     while (this.uint8array[index + i] != 0) {
         value += String.fromCharCode(this.uint8array[index + i]);
         i++;
@@ -291,12 +292,13 @@ OSCReceiver.prototype.parseArgs = function (dataIndex) {
 };
 
 OSCReceiver.prototype.translateMessage = function () {
-    var value = 0;
-    var i;
     var addressParsed = false;
-    var argTypesParsed = false;
     var argsParsed = false;
     var argsString = '';
+    var argTypesParsed = false;
+    var i;
+    var value = 0;
+
     for (i = 0; i < this.uint8array.length; i++) {
         value = parseInt(this.uint8array[i]);
         if (value === 0) {
@@ -330,6 +332,7 @@ OSCReceiver.prototype.toObject = function () {
         'args': this.oscArgs
     };
 };
+
 
 var ieee754 = {
     log2: Math.log(2),
