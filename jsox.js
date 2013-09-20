@@ -61,7 +61,7 @@ OSCIntArg.prototype.getString = function() {
 
 OSCIntArg.prototype.setFromBytes = function(b) {
     this.value = ((b[0] & 0x7F) << 24) | (b[1] << 16) | (b[2] << 8) | b[3];
-    // If the high bit is set then the number is 
+    // If the high bit is set then the number is
     if ((b[0] & 0x80) != 0) {
 	this.value = -(0x80000000) + this.value;
     }
@@ -128,7 +128,7 @@ OSCMessage.prototype.parseString = function (s) {
     this.args = [];
     this.address = remainder.substr(0, addressEnd);
     // Chop off the left side of the string up to the argument type list.
-    // This can be done by rounding the addressEnd up to the next multiple 
+    // This can be done by rounding the addressEnd up to the next multiple
     // of 4 and removing that many characters from the left. I'm not sure if
     // bitwise operations are the best thing here, but I'm hoping it's marginally
     // faster than rounding.
@@ -177,7 +177,7 @@ OSCMessage.prototype.uIntByteArray = function() {
     for (i = 0; i < this.args.length; i++) {
 	bytes.push(this.args[i].getString());
     }
-    
+
     totalLength = 0;
     for (i = 0; i< bytes.length; i++) {
 	totalLength += bytes[i].length;
