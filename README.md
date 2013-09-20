@@ -1,4 +1,5 @@
-***JSOX***
+`JSOX`
+=====
 
 **Send and receive OSC messages in the modern web browser.**
 
@@ -29,3 +30,4 @@ Example over websockets:
         var recv = new OSCReceiver(fr.result);
         console.log(recv.asObject);
     };
+
